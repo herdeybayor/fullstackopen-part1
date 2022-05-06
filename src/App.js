@@ -1,34 +1,59 @@
-const Hello = ({ name, age }) => {
-  return (
-    <div>
-      <p>
-        Hello {name}, you are {age} years old
-      </p>
-    </div>
-  );
-};
-
-const Footer = () => {
-  return (
-    <div>
-      greeting app created by{" "}
-      <a href="https://github.com/herdeybayor">herdeybayor</a>
-    </div>
-  );
-};
-
 const App = () => {
-  const name = "Peter";
-  const age = 10;
+  const course = "Half Stack application development";
+  const part1 = "Fundamentals of React";
+  const exercises1 = 10;
+  const part2 = "Using props to pass data";
+  const exercises2 = 7;
+  const part3 = "State of a component";
+  const exercises3 = 14;
+
   return (
-    <>
-      <h1>Greetings</h1>
-      <Hello name="Sherifdeen" age={17} />
-      <Hello name={name} age={age} />
-      <Hello name="Clerk Kent" age={age + 10} />
-      <Footer />
-    </>
+    <div>
+      <Header course={course} />
+      <Content
+        part1={part1}
+        part2={part2}
+        part3={part3}
+        exercises1={exercises1}
+        exercises2={exercises2}
+        exercises3={exercises3}
+      />
+      <Total
+        exercises1={exercises1}
+        exercises2={exercises2}
+        exercises3={exercises3}
+      />
+    </div>
   );
 };
 
 export default App;
+
+const Header = (props) => {
+  return <h1>{props.course}</h1>;
+};
+
+const Content = (props) => {
+  return (
+    <>
+      <p>
+        {props.part1} {props.exercises1}
+      </p>
+      <p>
+        {props.part2} {props.exercises2}
+      </p>
+      <p>
+        {props.part3} {props.exercises3}
+      </p>
+    </>
+  );
+};
+
+const Total = (props) => {
+  return (
+    <p>
+      Number of exercises{" "}
+      {props.exercises1 + props.exercises2 + props.exercises3}
+    </p>
+  );
+};
