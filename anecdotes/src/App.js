@@ -25,8 +25,11 @@ const App = () => {
     setPoints(copy);
   };
 
+  const hightestVote = points.indexOf(Math.max(...points));
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>
         {anecdotes[selected]} <br /> has {points[selected]} votes
       </p>
@@ -34,6 +37,10 @@ const App = () => {
       <button onClick={() => changeRandomNumber(anecdotes)}>
         nex anecdote
       </button>
+      <h1>Anecdote with most votes</h1>
+      <p>
+        {anecdotes[hightestVote]} <br /> has {points[hightestVote]} votes
+      </p>
     </div>
   );
 };
